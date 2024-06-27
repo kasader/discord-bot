@@ -1,4 +1,4 @@
 .env
-
-config/
+git
 config.json
+start.sh
