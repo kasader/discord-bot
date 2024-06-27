@@ -2,12 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"os/signal"
-	"syscall"
 
-	"github.com/kasader/discord-ping/bot"
-	"github.com/kasader/discord-ping/config"
+	"github.com/kasader/discord-bot/bot"
+	"github.com/kasader/discord-bot/config"
 )
 
 func main() {
@@ -20,9 +17,7 @@ func main() {
 
 	bot.Start()
 
-	sc := make(chan os.Signal, 1)
-	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
-	<-sc
+	// Cleanly close down the Discord session.
 
 	// <-make(chan struct{})
 	// return
