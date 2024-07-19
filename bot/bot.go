@@ -104,18 +104,28 @@ func interactionAuthor(i *discordgo.Interaction) *discordgo.User {
 
 func handleRssListShow(s *discordgo.Session, i *discordgo.InteractionCreate) {
 
+	builder := new(strings.Builder)
+	for i := 0; i < 10; i++ {
+		builder.WriteString("I add me:" + string(i) + "\n")
+	}
+
 	embed := &discordgo.MessageEmbed{
 		Author:      &discordgo.MessageEmbedAuthor{},
 		Color:       0x00ff00, // Green
 		Description: "This is a discordgo embed",
 		Fields: []*discordgo.MessageEmbedField{
 			&discordgo.MessageEmbedField{
-				Name:   "I am a field",
-				Value:  "I am a value",
+				Name:   "Title",
+				Value:  builder.String(),
 				Inline: true,
 			},
 			&discordgo.MessageEmbedField{
-				Name:   "I am a second field",
+				Name:   "Description",
+				Value:  "Lorem Ipsum lorem ipusm, lorem ipsum",
+				Inline: true,
+			},
+			&discordgo.MessageEmbedField{
+				Name:   "Feed URL",
 				Value:  "I am a value",
 				Inline: true,
 			},
