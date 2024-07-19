@@ -1,4 +1,5 @@
 .env
 git
 config.json
+feeds.json
 start.sh
